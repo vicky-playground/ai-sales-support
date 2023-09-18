@@ -15,3 +15,4 @@ Client VPN for VPC,Securely connect to your IBM Cloud resources from anywhere th
 Climate Impact API,Allows banks to provide their customers with carbon metrics associated with their purchases and buy offsets.,Free and IAM-enabled,Yes
 Cloud Foundry,Create and deploy applications on a managed multi-tenant Cloud Foundry environment.,Lite version is free and EU supported,Yes
 Cloud HSM,Protect your keys and secrets in a dedicated hardware security module.,IBM supported,Yes
+WatsonX,Watsonx is our enterprise-ready AI and data platform designed to multiply the impact of AI across your business., It enables you to train""",""" validate""",""" tune and deploy generative AI""",""" foundation models and machine learning capabilities with ease and build AI applications in a fraction of the time with a fraction of the data.,Yes
