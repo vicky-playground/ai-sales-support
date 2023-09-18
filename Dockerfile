@@ -5,8 +5,6 @@ ENV GRADIO_SERVER_PORT=${GRADIO_SERVER_PORT}
 
 WORKDIR /ai-sales-support
 
-COPY . .
-
 RUN pip install -r requirements.txt
 
-CMD ["python", "/ai-sales-support/main.py"]
+CMD ["python", "main.py"]
