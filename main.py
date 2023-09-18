@@ -2,14 +2,6 @@ from llama_index import SimpleDirectoryReader
 # load the document
 documents = SimpleDirectoryReader(input_files=["catalog.txt"]).load_data()
 
-# Llamaindex also works with langchain framework to implement embeddings
-from langchain.embeddings.huggingface import HuggingFaceEmbeddings
-from langchain import HuggingFaceHub
-from langchain.llms import HuggingFaceEndpoint
-from llama_index import GPTVectorStoreIndex
-from llama_index import LLMPredictor, ServiceContext, LangchainEmbedding
-
-
 # Import necessary libraries
 import torch
 from llama_index import GPTVectorStoreIndex, SimpleDirectoryReader, LLMPredictor, ServiceContext, LangchainEmbedding
