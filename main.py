@@ -124,7 +124,7 @@ def ask_bot(input_text):
         History:
         "{history}"
 
-        Now continue the conversation with the human. If you do not know the answer based on the chat history and the new input from the client, politely admit it and therefore you need more information.
+        Now continue the conversation with the human without "```" and any inline code formatting. If you do not know the answer based on the chat history and the new input from the client, politely admit it and therefore you need more information. 
         Human: {input}
         Assistant:"""
 
