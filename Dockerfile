@@ -1,6 +1,6 @@
 FROM python:3.9
-COPY . /ai-sales-support
 WORKDIR /ai-sales-support
+COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 ENV GRADIO_SERVER_PORT=7860
 ENV GRADIO_SERVER_NAME=0.0.0.0
