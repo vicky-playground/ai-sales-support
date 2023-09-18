@@ -6,4 +6,4 @@ COPY . .
 
 RUN pip install -r requirements.txt
 
-CMD ["python", "/ai-sales-support/main.py"]
+CMD ["python", "main.py"]
