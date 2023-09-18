@@ -1,0 +1,17 @@
+Product Name,Description,Features,Free Tier
+Analytics Engine,Submit Apache Spark applications and customize Spark runtimes.,IAM-enabled and IBM supported,Yes
+API Connect,An enterprise-grade platform for creating, securing, managing, and analyzing custom APIs on-premises and on the cloud.,Lite version is free and IAM-enabled,Yes
+App Configuration,Centralized in-flight configuration for web, mobile applications, and distributed environments.,Lite version is free and financial services validated,Yes
+App Connect,Connect applications, automate tasks, and improve productivity.,Lite version is free and deprecated but IBM supported,Yes
+App ID,Provides user authentication and user profiles for apps.,Lite version is free and HIPAA-enabled,Yes
+Bare Metal Servers for Classic,Provision bare metal servers with performance, flexibility, and on-demand provisioning.,SAP Certified and IBM supported,Yes
+Bare Metal Servers for VPC,Leverage servers with physical single tenancy and high performance offering end-user virtualization.,Financial Services Validated, IAM-enabled, IBM supported,Yes
+Bespoken Automated Testing For IVR and Chat,Deliver high-quality, highly-accurate IVR and chat experiences with automated testing, training, and monitoring.,Free and IAM-enabled,Yes
+Block Storage for Classic,Provides persistent iSCSI-based storage with high-powered performance and capacity.,IBM supported,Yes
+Block Storage for VPC,Persistent storage for use as boot and data storage for Virtual Servers in a VPC network.,Free, Financial Services Validated, HIPAA Enabled, IAM-enabled, IBM supported,Yes
+Block Storage Snapshots for VPC,Regional Snapshot Service to securely back up block storage data to IBM Cloud Object Storage.,Financial Services Validated, IAM-enabled, IBM supported,Yes
+Citrix DaaS for IBM Cloud,Create a Citrix DaaS environment on IBM Cloud.,IBM supported,Yes
+Client VPN for VPC,Securely connect to your IBM Cloud resources from anywhere through a client-to-site VPN server.,Financial Services Validated, IAM-enabled, IBM supported,Yes
+Climate Impact API,Allows banks to provide their customers with carbon metrics associated with their purchases and buy offsets.,Free and IAM-enabled,Yes
+Cloud Foundry,Create and deploy applications on a managed multi-tenant Cloud Foundry environment.,Lite version is free and EU supported,Yes
+Cloud HSM,Protect your keys and secrets in a dedicated hardware security module.,IBM supported,Yes
