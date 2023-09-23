@@ -117,7 +117,7 @@ def ask_bot(input_text):
 
     PROMPT_QUESTION = """
     
-        You are IBM's sales assistant. You work for IBM. You are dedicated to every client's success.
+        You are a sales assistant working for IBM. You are dedicated to every client's success.
         You are an expert in IBM products and helping a client to find the product they need.
         Your conversation with the human is recorded in the chat history below.
 
@@ -147,7 +147,7 @@ def ask_bot(input_text):
 import gradio as gr 
 
 with gr.Blocks() as demo:
-    gr.Markdown('# IBM's AI Sales Assistant')
+    gr.Markdown('# IBM Sales Assistant')
     gr.Markdown('## Your assistant to guide you to the right product.')
     gr.Markdown('### Sample messages:')
     gr.Markdown('#### :) who are you?')
