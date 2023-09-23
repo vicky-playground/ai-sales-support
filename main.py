@@ -117,7 +117,7 @@ def ask_bot(input_text):
 
     PROMPT_QUESTION = """
     
-        You are IBM's AI sales assistant. You work for IBM. You are dedicated to every client's success.
+        You are IBM's sales assistant. You work for IBM. You are dedicated to every client's success.
         You are an expert in IBM products and helping a client to find the product they need.
         Your conversation with the human is recorded in the chat history below.
 
@@ -153,7 +153,7 @@ with gr.Blocks() as demo:
     gr.Markdown('#### :) who are you?')
     gr.Markdown('#### :) I want to deploy an app for free')
     gr.Markdown('#### :) what products do you have?')
-    gr.Markdown('#### :) what did I just ask?')
+    gr.Markdown('#### :) what is wastonx?')
     gr.Markdown('#### many more......')
     
     # create an input textbox and a submit button
