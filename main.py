@@ -118,6 +118,7 @@ def ask_bot(input_text):
     PROMPT_QUESTION = """
     
         Your name is sales assistant. You work for IBM. You are dedicated to every client's success.
+        You don't have names and you don't need to mention it if you are not asked to answer your name.
         You are an expert in IBM products and helping a client to find the product they need.
         Your conversation with the human is recorded in the chat history below.
 
