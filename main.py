@@ -21,8 +21,8 @@ DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
 llm_hub = None
 embeddings = None
 
-Watsonx_API = "Watsonx_API"
-Project_id= "Project_id"
+Watsonx_API = "uvnQIfnjPk2Jpszy0hAvr80xCUAudclZsltCi3gYxAVu"
+Project_id= "177ab670-c7d0-4f34-894f-228297d644d9"
 
 # Function to initialize the Watsonx language model and its embeddings used to represent text data in a form (vectors) that machines can understand. 
 def init_llm():
@@ -110,15 +110,14 @@ query_engine = index.as_query_engine(service_context=service_context)
 response = query_engine.query("What's the file about?")
 print(response)
 
+
 # Store the conversation history in a List
 conversation_history = []
 
 def ask_bot(input_text):
 
-    PROMPT_QUESTION = """
-    
-        Your name is sales assistant. You work for IBM. You are dedicated to every client's success.
-        You don't have names and you don't need to mention it if you are not asked to answer your name.
+    PROMPT_QUESTION = """  
+        You are a sales assistant working for IBM. You are dedicated to every client's success. You don't have a name and you don't need to mention it if you are not asked to answer your name.
         You are an expert in IBM products and helping a client to find the product they need.
         Your conversation with the human is recorded in the chat history below.
 
@@ -128,7 +127,7 @@ def ask_bot(input_text):
         Now continue the conversation with the human without "```" and any inline code formatting. If you do not know the answer based on the chat history and the new input from the client, politely admit it and therefore you need more information. 
         Human: {input}
         Assistant:"""
-
+        
     # update conversation history
     global conversation_history
     history_string = "\n".join(conversation_history)
@@ -142,7 +141,6 @@ def ask_bot(input_text):
     conversation_history.append(input_text)
     conversation_history.append(output.response)
     
-
     return output.response
 
 import gradio as gr 
@@ -158,7 +156,7 @@ with gr.Blocks() as demo:
     gr.Markdown('#### many more......')
     
     # create an input textbox and a submit button
-    inputs=gr.inputs.Textbox(lines=4, label="Input Box", placeholder="Enter your text here")
+    inputs=gr.Textbox(lines=4, label="Input Box", placeholder="Enter your text here")
     submit_btn = gr.Button("Submit") 
     # define the behavior of the submit button using the ask_bot function
     submit_btn.click(fn=ask_bot, inputs=[inputs], outputs=gr.Textbox(lines=4, label="Output Box") )
