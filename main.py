@@ -21,8 +21,8 @@ DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
 llm_hub = None
 embeddings = None
 
-Watsonx_API = "Watsonx_API"
-Project_id= "Project_id"
+Watsonx_API = "uvnQIfnjPk2Jpszy0hAvr80xCUAudclZsltCi3gYxAVu"
+Project_id= "177ab670-c7d0-4f34-894f-228297d644d9"
 
 # Function to initialize the Watsonx language model and its embeddings used to represent text data in a form (vectors) that machines can understand. 
 def init_llm():
