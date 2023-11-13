@@ -2,6 +2,7 @@ from llama_index import SimpleDirectoryReader
 # load the document
 documents = SimpleDirectoryReader(input_files=["catalog.txt"]).load_data()
 
+
 # Import necessary libraries
 import torch
 from llama_index import GPTVectorStoreIndex, SimpleDirectoryReader, LLMPredictor, ServiceContext, LangchainEmbedding
@@ -21,18 +22,20 @@ DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
 llm_hub = None
 embeddings = None
 
-Watsonx_API = "Watsonx_API"
-Project_id= "Project_id"
+# Replace 'Watsonx_API' and 'Project_id' with your actual API key and Project ID
+Watsonx_API = "uvnQIfnjPk2Jpszy0hAvr80xCUAudclZsltCi3gYxAVu"
+Project_id= "177ab670-c7d0-4f34-894f-228297d644d9"
+    
 
 # Function to initialize the Watsonx language model and its embeddings used to represent text data in a form (vectors) that machines can understand. 
 def init_llm():
     global llm_hub, embeddings
     
     params = {
-        GenParams.MAX_NEW_TOKENS: 512, # The maximum number of tokens that the model can generate in a single run.
+        GenParams.MAX_NEW_TOKENS: 250, # The maximum number of tokens that the model can generate in a single run.
         GenParams.MIN_NEW_TOKENS: 1,   # The minimum number of tokens that the model should generate in a single run.
         GenParams.DECODING_METHOD: DecodingMethods.SAMPLE, # The method used by the model for decoding/generating new tokens. In this case, it uses the sampling method.
-        GenParams.TEMPERATURE: 0.2,   # A parameter that controls the randomness of the token generation. A lower value makes the generation more deterministic, while a higher value introduces more randomness.
+        GenParams.TEMPERATURE: 0.8,   # A parameter that controls the randomness of the token generation. A lower value makes the generation more deterministic, while a higher value introduces more randomness.
         GenParams.TOP_K: 50,          # The top K parameter restricts the token generation to the K most likely tokens at each step, which can help to focus the generation and avoid irrelevant tokens.
         GenParams.TOP_P: 1            # The top P parameter, also known as nucleus sampling, restricts the token generation to a subset of tokens that have a cumulative probability of at most P, helping to balance between diversity and quality of the generated text.
     }
@@ -51,14 +54,14 @@ def init_llm():
 
     llm_hub = WatsonxLLM(model=model)
 
-    #Initialize embeddings using a pre-trained model to represent the text data.
+    # Initialize embeddings using a pre-trained model to represent the text data.
     embeddings = HuggingFaceInstructEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={"device": DEVICE}
     )
 
 init_llm()
 
-# load the file
+# Load the file
 documents = SimpleDirectoryReader(input_files=["catalog.txt"]).load_data()
 
 # LLMPredictor: to generate the text response (Completion)
@@ -68,7 +71,6 @@ llm_predictor = LLMPredictor(
                                  
 # Hugging Face models can be supported by using LangchainEmbedding to convert text to embedding vector	
 embed_model = LangchainEmbedding(embeddings)
-#embed_model = LangchainEmbedding(HuggingFaceEmbeddings())
 
 # ServiceContext: to encapsulate the resources used to create indexes and run queries    
 service_context = ServiceContext.from_defaults(
@@ -76,40 +78,11 @@ service_context = ServiceContext.from_defaults(
         embed_model=embed_model
 )    
 
-"""
-# prepare Falcon Huggingface API
-llm = HuggingFaceEndpoint(
-            endpoint_url= "https://api-inference.huggingface.co/models/google/flan-t5-xxl" ,
-            huggingfacehub_api_token="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",
-            task="text-generation",
-            model_kwargs = {
-                "temperature":0.5, # a temperature of 0.5 makes the model deterministic. It limits the model to use the word with the highest probability. Default temperature:0.8
-                "max_new_tokens":512 # define the maximum number of tokens the model may produce in its answer         
-            }
-        )
-
-# LLMPredictor: to generate the text response (Completion)
-llm_predictor = LLMPredictor(llm=llm)
-
-# LangchainEmbedding: to convert text to embedding vector	
-# Hugging Face models can be supported by using LangchainEmbedding					  
-embed_model = LangchainEmbedding(HuggingFaceEmbeddings())
-
-# ServiceContext: to encapsulate the resources used to create indexes and run queries
-service_context = ServiceContext.from_defaults(
-        llm_predictor=llm_predictor, 
-        embed_model=embed_model
-    )
-"""    
-# build index
+# Build index
 index = GPTVectorStoreIndex.from_documents(documents, service_context=service_context)
 
 # use a query engine as the interface for your question
 query_engine = index.as_query_engine(service_context=service_context)
-# after the query engine is initialized, you can use its `query` method to pass your question as input.
-response = query_engine.query("What's the file about?")
-print(response)
-
 
 # Store the conversation history in a List
 conversation_history = []
