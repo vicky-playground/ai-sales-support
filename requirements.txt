@@ -4,6 +4,7 @@ nltk==3.8.1
 sentence_transformers
 InstructorEmbedding==1.0.0
 huggingface-hub==0.16.4
-ibm-watson-machine-learning
+ibm-watson-machine-learning>=1.0.320
+langchain
 torch==2.0.1
 gradio==3.41.0
